@@ -100,15 +100,15 @@ Yêu cầu: Máy tính chạy Java phiên bản từ 1.7
 				
 			trong file configuration/openhab.cfg, thêm tùy chọn
 				security:option=
-								ON: bật security
-								OFF: tắt security
-								EXTERNAL: Tắt security nội mạng, bật security ngoại mạng, nếu để chế độ này cần đặt security:netmask=<NET_MASK> để openHAB có thể xác định được một địa chỉ là trong hay ngoài mạng
+						ON: bật security
+						OFF: tắt security
+						EXTERNAL: Tắt security nội mạng, bật security ngoại mạng, nếu để chế độ này cần đặt security:netmask=<NET_MASK> để openHAB có thể xác định được một địa chỉ là trong hay ngoài mạng
 		+ Phân quyền: Hiện tại, OpenHAB chưa hỗ trợ phân quyền
 		
 7. Kết nối tới MQTT Broker
 	- Cài đặt MQTT Broker
-	- Cấu hình trong openhab.cfg (4) 
-		+ Cấu hình transport:
+	- Cấu hình trong openhab (4) 
+		+ Cấu hình transport trong file openhab.cfg
 			mqtt:<broker>.url=<url>
 			mqtt:<broker>.clientId=<clientId>
 			mqtt:<broker>.user=<user>
@@ -141,7 +141,7 @@ Yêu cầu: Máy tính chạy Java phiên bản từ 1.7
 			Switch mySwitch {mqtt=">[mybroker:/myhouse/office/light:command:ON:1],>[mybroker:/myhouse/office/light:command:*:Switch ${itemName} was turned ${command}]"}
 		
 		
-		+ Cấu hình event bus binding trong openhab.cfg: Ngoài việc cấu hính từng item, ta có thể cấu hình cho tất cả item trong file openhab.cfg như sau:
+		+ Cấu hình event bus binding trong openhab.cfg: Ngoài việc cấu hình từng item, ta có thể cấu hình cho tất cả item trong file openhab.cfg như sau:
 			mqtt-eventbus:broker=<broker>
 			mqtt-eventbus:statePublishTopic=<statePublishTopic>
 			mqtt-eventbus:commandPublishTopic=<commandPublishTopic>
